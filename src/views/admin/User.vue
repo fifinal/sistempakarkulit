@@ -15,7 +15,6 @@
             <table id="table-penyakit" class="display table table-hover">
               <thead>
                 <tr>
-                  <th @click="sortBy('id')" class="cursor">id</th>
                   <th @click="sortBy('nama')" class="cursor">Nama</th>
                   <th @click="sortBy('alamat')" class="cursor">Alamat</th>
                   <th @click="sortBy('umur')" class="cursor">Umur</th>
@@ -26,19 +25,23 @@
               </thead>
               <tbody>
                 <tr v-for="(p,i) in pasienList" :key="i">
-                  <td>{{p.id}}</td>
                   <td>{{p.nama}}</td>
                   <td>{{p.alamat}}</td>
                   <td>{{p.umur}}</td>
-                  <td class="td-actions text-right">
+                  <td>
+                    {{p.kode_penyakit}}
                     <button
                       type="button"
                       rel="tooltip"
-                      title="Edit"
+                      title="Lihat Nama Penyakit"
                       class="btn btn-primary btn-link btn-sm"
+                      @click="lihatNamaPenyakit(p.kode_penyakit)"
                     >
-                      <i class="fa fa-edit"></i>
+                      <i class="fa fa-eye"></i>
                     </button>
+                  </td>
+                  <td>{{new Date(p.tanggal.seconds*1000).toDateString()}}</td>
+                  <td class="td-actions text-center">
                     <button
                       type="button"
                       data-toggle="tooltip"
@@ -80,12 +83,14 @@ export default {
         tanggal: null
       },
       tablePasient: [],
+      tablePenyakit: [],
       kolomAksi: null
     };
   },
   firestore() {
     return {
-      tablePasien: db.collection("pasien")
+      tablePasien: db.collection("pasien"),
+      tablePenyakit: db.collection("penyakit")
     };
   },
   created() {
@@ -125,6 +130,12 @@ export default {
           }
         }
       );
+    },
+    lihatNamaPenyakit(kode_penyakit) {
+      let penyakit = this.tablePenyakit.filter(
+        result => (result.kode_penyakit = kode_penyakit)
+      );
+      this.notif("danger", "Penyakit : " + penyakit[0].nama_penyakit);
     },
     hapusPasien(pasien) {
       Swal.fire({

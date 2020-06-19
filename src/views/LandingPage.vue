@@ -57,6 +57,7 @@
           <div class="modal-content" data-background-color="dark">
             <div class="modal-header no-bd">
               <h5 class="modal-title">
+                Form Pasien
                 <span class="fw-mediumbold"></span>
                 <span class="fw-light"></span>
               </h5>
@@ -69,33 +70,30 @@
                 <div class="row">
                   <div class="col-sm-12">
                     <div class="form-group form-group-default">
-                      <label for="kode_gejala" class="placeholder">nama</label>
                       <input
                         id="nama"
                         type="text"
                         v-model="pasien.nama"
                         class="form-control"
-                        placeholder="kode gejala..."
+                        placeholder="Nama..."
                       />
                     </div>
                     <div class="form-group form-group-default">
-                      <label for="nama_gejala" class="placeholder">Alamat</label>
                       <input
                         id="alamat"
                         type="text"
                         v-model="pasien.alamat"
                         class="form-control"
-                        placeholder="nama gejala..."
+                        placeholder="Alamat..."
                       />
                     </div>
                     <div class="form-group form-group-default">
-                      <label for="nama_gejala" class="placeholder">Umur</label>
                       <input
                         id="umur"
                         type="number"
                         v-model="pasien.umur"
                         class="form-control"
-                        placeholder="nama gejala..."
+                        placeholder="Umur..."
                       />
                     </div>
                   </div>
@@ -176,47 +174,7 @@
           </div>
         </div>
       </div>
-    </section>
-
-    <section class id="content4">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-4">
-            <div class="card card-outline">
-              <div class="card-body box-profile">
-                <div class="text-center">
-                  <img class="profile-user-img img-fluid img-circle" alt="User profile picture" />
-                </div>
-                <h3 class="profile-username text-center">Dokter</h3>
-                <p class="text-muted text-center">Spesialis kulit</p>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4">
-            <div class="card card-outline">
-              <div class="card-body box-profile">
-                <div class="text-center">
-                  <img class="profile-user-img img-fluid img-circle" alt="User profile picture" />
-                </div>
-                <h3 class="profile-username text-center">Dokter</h3>
-                <p class="text-muted text-center">Spesialis kulit</p>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4">
-            <div class="card card-outline">
-              <div class="card-body box-profile">
-                <div class="text-center">
-                  <img class="profile-user-img img-fluid img-circle" alt="User profile picture" />
-                </div>
-                <h3 class="profile-username text-center">Dokter</h3>
-                <p class="text-muted text-center">Spesialis kulit</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+    </section>s
   </div>
 </template>
 
